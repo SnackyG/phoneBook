@@ -8,7 +8,20 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
         Scanner file = new Scanner(new File("src/phoneBook.txt"));
+        Contacts[] contactInformation =readFromFile(file);
 
+        menu(contactInformation, scan);
+    } //end of main
+
+    public static void writeToFile(Contacts[] contacts)throws FileNotFoundException{
+        PrintStream out = new PrintStream(new File("src/phoneBook.txt"));
+        for (Contacts newContact: contacts)
+        {
+            out.println(newContact.toString());
+        }
+    }
+
+    public static Contacts[] readFromFile(Scanner file)throws FileNotFoundException{
         int lineCounter = 0;
 
         while(file.hasNextLine()) {
@@ -36,10 +49,10 @@ public class Main {
             }
             index++;
         }
-menu(contactInformation, scan);
-    } //end of main
+       return contactInformation;
+    }//end of readFromFile
 
-    public static void menu(Contacts[] allContacts, Scanner scan) {
+    public static void menu(Contacts[] allContacts, Scanner scan)throws FileNotFoundException{
         System.out.println("Yo homs, are u ready to get bawlin. \nYoure following options is\n" +
                 "1: View contacts\n" +
                 "2: Add a contact\n" +
@@ -55,6 +68,9 @@ menu(contactInformation, scan);
 
             case 2:
             //add a contact
+                addContact(scan, allContacts);
+
+
             break;
 
             case 3:
@@ -80,5 +96,28 @@ menu(contactInformation, scan);
         for(Contacts tempContacts:arrayContacts) {
             tempContacts.toPrint();
         }
+    }
+
+    public static Contacts[] addContact(Scanner scan, Contacts[]arrayContacts)throws FileNotFoundException{
+        //first name
+        System.out.println("Hey, lets add a new contact");
+        System.out.println("What is your desired first name: ");
+        String fName = scan.next();
+        String line = scan.nextLine();
+        //last name
+        System.out.println("What is your desired last name: ");
+        String lName = scan.nextLine();
+        //line = scan.nextLine();
+        //phonenumber
+        System.out.println("What is your desired phone number: ");
+        int phoneNumber = scan.nextInt();
+        Contacts newContact = new Contacts(fName, lName, phoneNumber);
+        Contacts[] newPhoneBook= new Contacts[arrayContacts.length+1];
+        for (int i = 0; i < arrayContacts.length; i++) {
+            newPhoneBook[i] = arrayContacts[i];
+        }
+        newPhoneBook[arrayContacts.length] = newContact;
+        writeToFile(newPhoneBook);
+        return newPhoneBook;
     }
 } // end of class

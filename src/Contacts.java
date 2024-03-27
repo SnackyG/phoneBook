@@ -11,7 +11,7 @@ public class Contacts {
     }
 
     public String toString() {
-        return ("First name: " + firstName + "Last name: " + lastName + "Phonenumber: " + phoneNumber);
+        return (firstName +" " +lastName +" "+phoneNumber);
     }
     public void toPrint() {
          System.out.println("First name: " + firstName + "\nLast name: " + lastName + "\nPhonenumber: " + phoneNumber);

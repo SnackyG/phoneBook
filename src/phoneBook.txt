@@ -1,5 +1,13 @@
-Alexander Jacobsen 30135698
-Lasse Otterstrøm Hugo 50956666
-Lina Hajjar 51772001
-Klaus Gregersen 40941339
-Min ven 11111111
+Alexander Jacobsen  30135698
+Lasse Otterstrøm Hugo  50956666
+Lina Hajjar  51772001
+Klaus Gregersen  40941339
+Min ven  11111111
+Lasse Otterstroem  40956666
+Jungledyret Hugo  12345678
+Claus Gregersen  12345678
+Lasse Otterstroem  87654321
+Testperson nummer2  87654321
+Testperson nummer3  12345678
+Testperson nummer4  12345678
+Joakim von and 11111111
